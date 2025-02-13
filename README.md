@@ -16,7 +16,6 @@ Before you begin, ensure you have met the following requirements:
 - [Node.js](https://nodejs.org/) installed on your machine.
 - [MongoDB](https://www.mongodb.com/) running locally or using a cloud service like MongoDB Atlas.
 - [Postman](https://www.postman.com/) or another API testing tool (optional but recommended).
-- [Swagger](https://node-q31r.onrender.com/api-docs) is API documentation collection (optional but recommended).
 
 ## Installation
 
@@ -31,5 +30,11 @@ Before you begin, ensure you have met the following requirements:
 ## Install dependencies
 
    npm install
+
+## Swagger Documentation
+
+- You can view the API documentation using Swagger at the following link:
+
+[Swagger API Documentation](https://node-q31r.onrender.com/api-docs#/)
 
    

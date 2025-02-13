@@ -73,7 +73,6 @@ router.post("/item", verifyToken, async (req, res) => {
     const savedItem = await newItem.save();
     res.status(201).json({ message: "Item created successfully", savedItem });
   } catch (err) {
-    console.log("shubha,sihosaid", err);
     res.status(400).json({ message: err.message });
   }
 });
