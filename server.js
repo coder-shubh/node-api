@@ -21,6 +21,8 @@ const XMUserRouter = require("./routes/XMood/XMUserRouter");
 const XMAppOpenCountRouter = require("./routes/XMood/XMAppOpenCountRouter");
 const XMOnboardRoute = require("./routes/XMood/XMOnboardRoute");
 const XMReelRoute = require("./routes/XMood/XMReelRoute");
+const XMSwitchServiceRounte = require("./routes/XMood/XMSwitchServiceRounte");
+
 
 
 
@@ -65,6 +67,8 @@ app.use("/api", XMUserRouter);
 app.use("/api", XMAppOpenCountRouter);
 app.use("/api", XMOnboardRoute);
 app.use("/api", XMReelRoute);
+app.use("/api", XMSwitchServiceRounte);
+
 
 
 
