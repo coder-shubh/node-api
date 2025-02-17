@@ -4,7 +4,7 @@ const router = express.Router();
 
 // Create a new category
 router.post("/XMCategory", async (req, res) => {
-  const { name, description } = req.body;
+  const { name, description, creatorName } = req.body;
 
   // Check if category already exists
   const existingCategory = await XMCategory.findOne({ name });
@@ -14,7 +14,7 @@ router.post("/XMCategory", async (req, res) => {
   }
 
   try {
-    const newCategory = new XMCategory({ name, description });
+    const newCategory = new XMCategory({ name, description, creatorName });
     await newCategory.save();
     return res.status(201).json(newCategory);
   } catch (error) {
@@ -56,12 +56,12 @@ router.get("/XMCategory/:id", async (req, res) => {
 // Update a category by ID
 router.put("/XMCategory/:id", async (req, res) => {
   const { id } = req.params;
-  const { name, description } = req.body;
+  const { name, description, creatorName } = req.body;
 
   try {
     const updatedCategory = await XMCategory.findByIdAndUpdate(
       id,
-      { name, description },
+      { name, description, creatorName },
       { new: true }
     );
 
@@ -92,4 +92,5 @@ router.delete("/XMCategory/:id", async (req, res) => {
       .json({ error: "Error deleting category", details: error });
   }
 });
+
 module.exports = router;
