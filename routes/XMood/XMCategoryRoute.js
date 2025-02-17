@@ -13,6 +13,12 @@ router.post("/XMCategory", async (req, res) => {
     return res.status(400).json({ error: "Category already exists" });
   }
 
+  // Validate email format for creatorName
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(creatorName)) {
+    return res.status(400).json({ error: "Invalid email format for creatorName" });
+  }
+
   try {
     const newCategory = new XMCategory({ name, description, creatorName });
     await newCategory.save();
@@ -57,6 +63,12 @@ router.get("/XMCategory/:id", async (req, res) => {
 router.put("/XMCategory/:id", async (req, res) => {
   const { id } = req.params;
   const { name, description, creatorName } = req.body;
+
+  // Validate email format for creatorName
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (creatorName && !emailRegex.test(creatorName)) {
+    return res.status(400).json({ error: "Invalid email format for creatorName" });
+  }
 
   try {
     const updatedCategory = await XMCategory.findByIdAndUpdate(

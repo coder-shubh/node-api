@@ -15,6 +15,7 @@ const XMCategorySchema = new Schema(
     creatorName: {
       type: String,
       required: true, // Assuming this is required, but can be adjusted if needed
+      match: [/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Please provide a valid email address"], // Validates email format
     },
     createdAt: {
       type: Date,
