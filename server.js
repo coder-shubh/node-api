@@ -21,6 +21,8 @@ const XMUserRouter = require("./routes/XMood/XMUserRouter");
 const XMAppOpenCountRouter = require("./routes/XMood/XMAppOpenCountRouter");
 const XMOnboardRoute = require("./routes/XMood/XMOnboardRoute");
 const XMReelRoute = require("./routes/XMood/XMReelRoute");
+const forceUpdate = require("./routes/mBGone/forceUpdate");
+
 
 
 
@@ -29,12 +31,12 @@ const XMReelRoute = require("./routes/XMood/XMReelRoute");
 
 // console.log("GraphQL Schema loaded:", userGraphqlSchema);
 //INVIA
-// const uri =
-//   "mongodb+srv://new-user-31:BVjbKBhcu8puOKC3@cluster19986.4ktj0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster19986";
+const uri =
+  "mongodb+srv://new-user-31:BVjbKBhcu8puOKC3@cluster19986.4ktj0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster19986";
 
 //MAVESYSSHUBHAM:
-const uri =
-  "mongodb+srv://shubhammavesys:pKgkNeTbUv28ht4m@cluster0.im52i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// const uri =
+//   "mongodb+srv://shubhammavesys:pKgkNeTbUv28ht4m@cluster0.im52i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create Express ap
 const app = express();
@@ -65,6 +67,8 @@ app.use("/api", XMUserRouter);
 app.use("/api", XMAppOpenCountRouter);
 app.use("/api", XMOnboardRoute);
 app.use("/api", XMReelRoute);
+app.use("/api", forceUpdate);
+
 
 
 
